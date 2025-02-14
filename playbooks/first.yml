@@ -1,0 +1,9 @@
+---
+- name: demo of a pb
+  hosts: servera
+  remote_user: devops
+  tasks:
+    - name: creating a file
+      copy: content="JUST AN EXAMPLE"
+    - name: install a pkg
+      yum: name=dialog state=present   

@@ -1,0 +1,14 @@
+---
+- hosts: servera
+  vars:
+   message: welcome to the world of ansible
+  tasks:
+    - name: throw welcome
+      debug:
+        var: message
+      when: message is defined
+    - name: throw exception
+      debug:
+        msg: "sry u can't welcome msg not define"
+      when: message is  not defined
+

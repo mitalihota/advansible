@@ -1,0 +1,5 @@
+Implementing playbooks
+1.what are the 3 ways to write pbs?
+2.write a playbook having two tasks create a file on remote mc servera on /tmp/testfile,give full perm to all,owner of file is devops,and install a pkg tree and on serverb add a user john?
+3 how to execute a playbook with a dryrun and error checking?
+

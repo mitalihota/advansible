@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  become: yes
+  remote_user: devops
+  #  force_handlers: yes
+  #ignore_errors: yes
+  tasks:
+   - name: copy the config file1
+     copy:
+       src: /tmp/myapp.conf
+       dest: /etc/myapp.conf
+     notify:
+        - restart-myapp
+   - name: Install a pack 
+     yum:
+       name: notpack
+       state: present
+  handlers:
+   - name: restart-myapp
+     debug:
+       msg: "restart myapp"      

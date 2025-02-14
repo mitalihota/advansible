@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+   - name: print the db users
+     with_items:
+        - db_admin
+        - db_user
+        - db_bkupuser
+     debug:
+       msg: "{{ item }} will be created"     

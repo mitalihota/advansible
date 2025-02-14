@@ -1,0 +1,12 @@
+---
+- hosts: servera.lab.example.com
+  become: yes
+  remote_user: devops
+  tasks: 
+    - user: 
+       name: "{{ item.name }}"
+       uid: "{{ item.uid }}"
+      with_items:
+          - { name: user1 , uid: 3050 }
+          - { name: user2 , uid: 3060 }
+          - { name: user3 , uid: 3070 }

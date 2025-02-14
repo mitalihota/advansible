@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  become: yes
+  remote_user: devops
+  tasks:
+   - name: copy the config file
+     copy:
+      src: /tmp/myapp.conf
+      dest: /etc/myapp.conf
+     register: mitali
+     changed_when: "'file' in mitali.state"
+     notify: 
+        restart_myapp
+   - name: print register variable
+     debug: var=mitali
+  handlers:   
+   - name: restart_myapp
+     debug:
+       msg: "restart myapp"

@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks: 
+   - name: printing db users
+     with_nested:
+      - { group1,group2 }
+      - {user1,user2}
+     debug:
+       msg: "{{item}} will be created"

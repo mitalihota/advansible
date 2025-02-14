@@ -1,0 +1,14 @@
+---
+- hosts: servera
+  become: true
+  remote_user: devops
+  tasks:
+  - copy:
+      dest: /usr/test
+      content: |
+          Redhat    
+          Fedora
+          Ubuntu
+      owner: student
+      group: devops
+      mode: 0777

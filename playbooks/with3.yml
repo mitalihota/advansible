@@ -1,0 +1,8 @@
+---
+- hosts: servera.lab.example.com
+  become: yes
+  remote_user: devops
+  tasks: 
+   - debug:
+       msg: "{{ item }}"
+     loop: "{{ range(0,9,2) | list}}"

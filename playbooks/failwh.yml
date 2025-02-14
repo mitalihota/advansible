@@ -1,0 +1,14 @@
+---
+- hosts: servera
+  become: true
+  remote_user: devops
+  vars_prompt:
+    name: pkg
+    prompt: "Enter the RPM to verify and install"
+    private: no
+  tasks:  
+   - shell:  rpm -qa {{ pkg }}
+     register: pkg_stat
+   - debug:
+       msg: "{{ pkg_stat.stdout}}"   
+     failed_when: pkg not in pkg_stat.stdout  

@@ -1,0 +1,34 @@
+---
+- hosts: serverb.lab.example.com
+  become: yes
+  remote_user: devops
+  tasks:
+   - name: create a folder
+     file:
+      path: /webdev
+      state: directory
+      mode: '2775'
+      group: apache
+   - name: create a shortcut file
+     file:
+      src: /webdev
+      dest: /var/www/html/webdev
+      state: link
+      force: yes
+   - name: change the s context
+     sefcontext:
+      target: '/webdev(/.*)?'
+      setype: 'httpd_sys_content_t'
+      state: present
+   - name: rstore context
+     command: restorecon -irv /webdev
+   - name: create an index.html file
+     file:
+      path: /webdev/index.html
+      state: touch
+   - lineinfile:
+      path: /webdev/index.html
+      line: 'production'
+      state: present
+
+        

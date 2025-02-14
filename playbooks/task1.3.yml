@@ -1,0 +1,10 @@
+---
+- hosts: all
+  vars:
+    users: [ram,sam,harry]     
+  tasks:
+   - name: print the  users
+     user:
+       name: "{{ item }} will be created"     
+       state: present
+     loop: "{{ users }}"

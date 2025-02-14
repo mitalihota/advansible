@@ -1,0 +1,80 @@
+managing varibles and facts
+1.what is variable?
+Ansible supports variables that can be used to store values that can then be reused throughout
+files in an Ansible project. This can simplify the creation and maintenance of a project and reduce
+the number of errors.
+####################################
+variables can consist of
+- alphabetical chars
+- numerical chars
+-specialchar_underscore
+Must start with albhabetical char
+May contain  mulitple _ and multiple numeric chars
+eg: EX294_ansible_automation
+################################################################
+2.what are the scopes of variable?
+
+1.playlevel scope-inside the pb
+==============================
+a.inside pb using vars(yaml)
+b.to inherit from external file=vars_files(YAML/JSON)
+2.Hostlevel scope
+=================
+a.inside the inventory(INI)
+b.host_vars/files(YAML)
+c.group_vars/files(YAML)
+3.Global level scope
+===================
+categories-
+a.Extravariables(cli)
+b.register variables
+c.magic variables(predefined variables)
+predefined variables used to fetch the information about the inventoryfile.
+i.inventory_hostname=to print the name define inside inventory fie
+ii.groups=to print all the group details.
+iii.group_names=to print the groupnames in which host is the member.
+iv.hostvars=to print all the magic variables including fact.
+d.fact variables(predefined variables)
+fact variables are predefined variables used to fetch the system defaults .
+module-setup
+-implicit=always gather(bydefault)
+-explict=doesnot gather
+-smart=gather only once
+4. what is custom facts?
+whereas customfact are the userdefined facts created inside /etc/ansible/facts.d/*.fact
+N.b: when the variable is in the beginning of the string it should be covered with quotes.""
+########################################################################################
+
+3.what is difference between hostvariable and group variable explain with example?
+
+Inventory variables that apply directly to hosts fall into two broad categories: host variables apply
+to a specific host, and group variables apply to all hosts in a host group or in a group of host
+groups. Host variables take precedence over group variables, but variables defined by a playbook
+take precedence over both.
+
+############################################################3
+
+5.what is vault?
+
+Ansible vault is a tool which is used for encryption of playbook ,ie pb may consist of sensitive informationlikeusername,password etc.
+cmd line tool- ansible-vault
+
+syntax- ansible-vault <otion> <argument>
+
+ansible-vault encrypt filename=to encrypt
+ansible-vault decrypt filename=to decrypt
+ansible-vault view filename=to read
+ansible-vault edit filename=to modify
+ansible-vault rekey filename=to resetpassword
+
+NB-for reset we should know previous passwd unless until u r not able to remember only then u need to remove the file and encrypt again is the solution
+
+#########################
+
+variable precedence:-
+
+1.extravariable
+2.vars_files/include_vars
+2.task
+4.playbook
+5.inventory

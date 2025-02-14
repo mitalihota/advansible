@@ -1,0 +1,14 @@
+- name: Find free space on root file system
+  hosts: servera
+  become: false
+  gather_facts: true
+  tasks:
+   - name: Ensure fact is set
+     set_fact:
+       my_request: "{{ my_size | default('2')}} GB"
+   - name: Ensure sufficient space available on root file system
+     assert: 
+       that: "{{ ansible_facts['mounts'][0]['size_available'] > my_request | human_to_bytes }}"
+       success_msg:  you have {{my_request}} available
+       fail_msg:  you do not have {{my_request}} available
+

@@ -1,0 +1,7 @@
+---
+- name: using magic variable demo
+  hosts: servera.lab.example.com
+  tasks:
+   - name: display magic var output
+     debug:
+       msg: "this server name fact collected as: {{ansible_default_ipv4.address}} {{ansible_fqdn}} {{ inventory_hostname}}"

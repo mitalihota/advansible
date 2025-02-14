@@ -1,0 +1,15 @@
+---
+- hosts: servera.lab.example.com
+  become: yes
+  remote_user: devops
+  vars:
+    var: [redhat, fedora, ubuntu]
+  tasks: 
+  # - debug:
+  #     msg: "{{ item }}"
+  #   with_random_choice:  
+  #     - redhat
+  #     - fedora
+  #     - ubuntu
+   - debug:
+       msg: "{{ var | random }}"

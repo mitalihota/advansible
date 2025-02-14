@@ -1,0 +1,11 @@
+---
+- name: use vhost role playbook
+  hosts: webservers
+  pre_tasks:
+    - debug: msg='Begining webserver configuration'
+  roles:
+   - myvhost
+     # - myfirewall
+  post_tasks:
+    - debug: msg='webserver has been configured'
+ 

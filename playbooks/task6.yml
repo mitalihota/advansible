@@ -1,0 +1,13 @@
+---
+- name: play1 to deploy webserver
+  hosts: servera.lab.example.com
+  become: yes
+  remote_user: devops
+  tasks: 
+   - name: adding user
+     debug:
+       msg: "{{ item }}"
+     with_file:
+         - file1.txt
+         - file2.txt
+

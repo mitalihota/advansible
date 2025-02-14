@@ -1,0 +1,19 @@
+Implementing task control
+1 older version
+--> with_items
+--> with_sequence
+--> with_random_choice
+--> with_*
+2. newer version
+--> loop
+iteration variable: "{{ item }}"
+Handlers:-
+other programming language we use funstion,Inside ansible if you want to write separate funstions then go for handlers.Generally it acts as a trigger,we have two section one is task other is handler in playbook.
+whenever there is a change by executing a task,then it create a trigger
+eg-edited something in configuration file then state changed lead a trigger (by notify)stmt to restart that particular service.its achieved by handler inside ansible
+concept-
+is a trigger which take care of running an event in case of action is actually happening.
+NOTE-
+--> Handler section will be executed only after completing all the main tasks.
+--> Handler will be executed in sequence as specified in the handler section.
+-->if the same handler is called multiple times handler will be executed only once .

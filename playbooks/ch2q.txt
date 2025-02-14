@@ -1,0 +1,7 @@
+deploying ansible
+1. managing ansible configuration?
+2.what is the default inventoryfile and configuration file?
+3.Difference between ask_pass and become_ask_pass?
+4.what is adhoc cmd in ansible give some examples?
+5.what are the configuration entries?
+  

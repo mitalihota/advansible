@@ -1,0 +1,8 @@
+what is ansible?
+Why ansible?
+what are the usecases?
+exaplain architecture of ansible?
+what is IAC?
+what are the terminology used in ansible?
+what is devops?
+

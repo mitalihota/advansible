@@ -1,0 +1,12 @@
+---
+- hosts: servera.lab.example.com
+  become: yes
+  remote_user: devops
+  tasks: 
+    - user: 
+       name: "{{item}}"
+       state: present
+      with_items:
+        - user1
+        - user2
+        - user3 

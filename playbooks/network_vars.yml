@@ -1,0 +1,21 @@
+network_data:
+  - sname: classroom
+    lname: classroom.example.com
+    ipv4: 172.25.254.254/24
+    gw4: 172.25.250.254
+    mtu: 1500
+    dns: 172.25.250.254
+
+  - sname: controller
+    lname: controller.lab.example.com
+    ipv4: 172.25.250.7/24
+    gw4: 172.25.250.254
+    mtu: 1500
+    dns: 172.25.250.254
+
+  - sname: utility
+    lname: utility.lab.example.com
+    ipv4: 172.25.250.8/24
+    gw4: 172.25.250.254
+    mtu: 1500
+    dns: 172.25.250.254

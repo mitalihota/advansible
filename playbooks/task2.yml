@@ -1,0 +1,12 @@
+---
+- hosts: all
+  vars:
+    db_users:
+      - db_admin
+      - db_user
+      - db_bkupuser
+  tasks:      
+   - name: print the db users
+     debug:
+       msg: "{{ item }} will be created"     
+     with_items: "{{ db_users }}"  

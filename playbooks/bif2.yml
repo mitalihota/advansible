@@ -1,0 +1,9 @@
+---
+- hosts: servera
+  become: true
+  remote_user: devops
+  tasks:
+  - blockinfile:
+      path: /usr/test
+      block: this is the block content added
+      insertbefore: ^Ubuntu

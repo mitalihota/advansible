@@ -1,0 +1,23 @@
+- name: Demonstration of various lookup plugins
+  become: false
+  gather_facts: true
+  hosts: servera
+  tasks:
+    - name: ensure the variable is displayed on {{ inventory_hostname }}
+      debug:
+        msg: the value of the variable SHELL is {{ lookup('env', 'SHELL')}}
+    - name: ensure the content of /etc/fstab are displayed
+      debug:
+       msg: |
+         "{{ lookup('file', '/etc/fstab' )}}"
+    - name: display 2 files
+      debug:
+        msg: "{{query('file','/etc/fstab','/etc/issue')}}"
+    - name: display who is logged in
+      debug:
+        msg: "{{lookup('pipe', 'w')}}"
+    - name: retrieve data from webserver
+      debug:
+        msg: |
+          "{{lookup('url','http://classroom.example.com')}}"
+ 

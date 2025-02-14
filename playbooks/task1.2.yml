@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+   - name: print the db users
+     user:
+       name: "{{ item }} will be created"     
+       state: present
+     loop:
+        - ram
+        - sam
+        - harry
+          #loop: [redhat,fedora,ubuntu,centos]

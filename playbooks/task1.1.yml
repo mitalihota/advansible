@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+   - name: print the db users
+     debug:
+       msg: "{{ item }} will be created"     
+     loop:
+        - db_admin
+        - db_user
+        - db_bkupuser
+          #loop: [redhat,fedora,ubuntu,centos]

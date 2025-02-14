@@ -1,0 +1,9 @@
+---
+- hosts: servera
+  become: true
+  remote_user: devops
+  tasks:
+  - lineinfile:
+      path: /usr/test
+      line: "this is a new line"
+      regexp: ^Fedora
