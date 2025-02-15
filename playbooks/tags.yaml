@@ -1,0 +1,16 @@
+- name: example of task selection
+  hosts: dev
+  become: yes
+  remote_user: devops
+  tasks:
+   - name: first tag task
+     ansible.builtin.copy:
+      content: "que, sara sara"
+      dest: /var/www/html/index.html
+     tags: [ never, alpha ]
+   - name: second tag task
+     ansible.builtin.copy:
+      content: "what ever, will be will be"
+      dest: /var/www/html/index.html
+     tags: [ never, beta ]
+ 
