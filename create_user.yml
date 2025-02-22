@@ -1,0 +1,11 @@
+- name: create the users
+  hosts: dev
+  become: yes
+  vars_files:
+   - user_list.yml
+  tasks:
+   - name:  adding users      
+     ansible.builtin.user:
+       name: "{{item}}"
+       state: present
+     loop: "{{developer}}"
